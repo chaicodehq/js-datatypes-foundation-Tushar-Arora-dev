@@ -53,20 +53,37 @@
  */
 export function parcelToJSON(parcel) {
   // Your code here
+  if (JSON.stringify(parcel) == undefined) return "";
+
+  return JSON.stringify(parcel);
 }
 
 export function jsonToParcel(jsonString) {
   // Your code here
+  if (typeof jsonString != "string") return null
+  try {
+    return JSON.parse(jsonString);
+  } catch (error) {
+    return null
+  }
 }
 
 export function convertToString(value) {
   // Your code here
+
+  return String(value);
 }
 
 export function convertToNumber(value) {
   // Your code here
+  if (isNaN(Number(value))) return NaN
+
+  return Number(value);
 }
 
 export function stringToChars(str) {
   // Your code here
+  if (typeof str != "string" || str.length == 0) return [];
+
+  return Array.from(str);
 }
